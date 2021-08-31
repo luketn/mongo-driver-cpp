@@ -1,5 +1,5 @@
 FROM amazonlinux:2
-RUN yum install -y tar clang cmake3 make gzip wget openssl-devel cyrus-sasl-devel git
+RUN yum install -y tar clang cmake3 make gzip wget openssl-devel cyrus-sasl-devel git file
 
 WORKDIR /opt/mongo-c-driver
 RUN wget https://github.com/mongodb/mongo-c-driver/releases/download/1.19.0/mongo-c-driver-1.19.0.tar.gz && \

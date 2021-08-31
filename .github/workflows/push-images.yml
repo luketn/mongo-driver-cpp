@@ -1,0 +1,24 @@
+name: Push Docker Images
+
+on:
+  workflow_run:
+    workflows: ["Verify Docker Images"]
+    branches: [main]
+    types:
+      - completed
+
+jobs: 
+  push-mongo-driver-cpp:
+    name: Push Mongo Driver Images
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [ latest ]
+        package: [ full ]
+        platform: [ al2 ]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Push MongoDB CPP Driver image, version '${{ matrix.version }}', ${{ matrix.package }} package on ${{ matrix.platform }}
+        run: ./bin/push-image.sh "${{ matrix.version }}/${{ matrix.package }}/${{ matrix.platform }}/Dockerfile"

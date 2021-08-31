@@ -1,0 +1,23 @@
+schemaVersion: "2.0.0"
+
+commandTests:
+  - name: "Check MongoDB C Driver BSON file is a valid library."
+    command: "file"
+    args: ["-L", "/usr/local/lib64/libbson-1.0.so"]
+    expectedOutput: ["*ELF 64-bit LSB shared object, x86-64*"]
+
+  - name: "Check MongoDB C Driver file is a valid library."
+    command: "file"
+    args: ["-L", "/usr/local/lib64/libmongoc-1.0.so"]
+    expectedOutput: ["*ELF 64-bit LSB shared object, x86-64*"]
+
+  - name: "Check MongoDB C++ Driver BSON file is a valid library."
+    command: "file"
+    args: ["-L", "/usr/local/lib64/libbsoncxx.so"]
+    expectedOutput: ["*ELF 64-bit LSB shared object, x86-64*"]
+
+  - name: "Check MongoDB C++ Driver file is a valid library."
+    command: "file"
+    args: ["-L", "/usr/local/lib64/libmongocxx.so"]
+    expectedOutput: ["*ELF 64-bit LSB shared object, x86-64*"]
+
