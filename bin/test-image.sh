@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
+echo "Testing docker build for Version: "$2", Package: "$3", Platform: "$4
 
 # 1. Fetch and setup test framework.
 # For more info and usage examples, see:

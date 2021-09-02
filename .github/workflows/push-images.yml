@@ -21,4 +21,4 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Push MongoDB CPP Driver image, version '${{ matrix.version }}', ${{ matrix.package }} package on ${{ matrix.platform }}
-        run: ./bin/push-image.sh "${{ matrix.version }}/${{ matrix.package }}/${{ matrix.platform }}/Dockerfile"
+        run: ./bin/push-image.sh "${{ matrix.version }}/${{ matrix.package }}/${{ matrix.platform }}/Dockerfile" "${{ matrix.version }}" "${{ matrix.package }}" "${{ matrix.platform }}"
